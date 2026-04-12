@@ -432,22 +432,17 @@ async function analyze() {
         }
     });
 }
-
 async function demo() {
     runProgress(async () => {
         try {
             const res  = await fetch(API + "/api/demo");
+            if (!res.ok) throw new Error("Status: " + res.status);
             const data = await res.json();
             showResult(data);
-        } catch {
+        } catch (err) {
+            console.error("Demo error:", err);
             showResult(fakeData());
         }
     });
 }
-    });
-}
-  
-</script>
- 
-</body>
 </html>
