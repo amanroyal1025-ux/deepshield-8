@@ -407,42 +407,47 @@
       }
     };
   }
-
 const API = "https://aman1418-deepshield.hf.space";
 
 async function analyze() {
     if (!file) return;
     document.getElementById("analyzeBtn").disabled = true;
+    document.getElementById("resultCard").classList.remove("show");
+
     runProgress(async () => {
         try {
             const form = new FormData();
             form.append("video", file);
-            const res  = await fetch(API + "/api/analyze", {
+
+            const res = await fetch(API + "/api/analyze", {
                 method: "POST",
                 body: form
             });
+
             const data = await res.json();
-            if (!res.ok) throw new Error(data.error || "Server error");
             showResult(data);
+
         } catch (err) {
-            console.warn("API error:", err.message);
+            console.warn("Backend error, using local demo:", err.message);
             showResult(fakeData());
         } finally {
             document.getElementById("analyzeBtn").disabled = false;
         }
     });
 }
+
 async function demo() {
+    document.getElementById("resultCard").classList.remove("show");
+
     runProgress(async () => {
         try {
             const res  = await fetch(API + "/api/demo");
-            if (!res.ok) throw new Error("Status: " + res.status);
             const data = await res.json();
             showResult(data);
         } catch (err) {
-            console.error("Demo error:", err);
+            console.warn("Backend error, using local demo:", err.message);
             showResult(fakeData());
         }
     });
 }
-</html>
+ </script>
