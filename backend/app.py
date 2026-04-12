@@ -22,10 +22,31 @@ else:
 def allowed(filename):
     return "." in filename and filename.rsplit(".",1)[1].lower() in ALLOWED
 
-def demo_result():
+def demo_result(filename=""):
     import random
+    
+    # More balanced 50/50 result
     isFake = random.random() > 0.5
-    fp = round(random.uniform(0.65,0.95) if isFake else random.uniform(0.05,0.35), 4)
+    
+    if isFake:
+        fp = round(random.uniform(0.55, 0.85), 4)  # fake confidence
+    else:
+        fp = round(random.uniform(0.05, 0.42), 4)  # real confidence
+
+    return {
+        "verdict":          "FAKE" if isFake else "REAL",
+        "confidence":       fp if isFake else round(1 - fp, 4),
+        "fake_probability": fp,
+        "real_probability": round(1 - fp, 4),
+        "frames_analyzed":  random.randint(18, 22),
+        "frames_with_face": random.randint(14, 18),
+        "artifacts": {
+            "edge_noise_score":          round(random.uniform(0.2, 0.7), 3),
+            "color_inconsistency_score": round(random.uniform(0.1, 0.6), 3),
+            "boundary_blur_score":       round(random.uniform(0.2, 0.65), 3),
+        },
+        "demo_mode": True
+    }
     return {
         "verdict":          "FAKE" if isFake else "REAL",
         "confidence":       fp if isFake else round(1-fp, 4),
