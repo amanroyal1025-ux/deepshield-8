@@ -407,15 +407,44 @@
       }
     };
   }
+  // ── YOUR RENDER BACKEND URL ───────────────────────────────────
+const API = "https://deepshield-api.onrender.com";
 
-  function analyze() {
+async function analyze() {
+    if (!file) return;
     document.getElementById("analyzeBtn").disabled = true;
-    runProgress(() => { showResult(fakeData()); document.getElementById("analyzeBtn").disabled = false; });
-  }
+    runProgress(async () => {
+        try {
+            const form = new FormData();
+            form.append("video", file);
+            const res  = await fetch(API + "/api/analyze", {
+                method: "POST",
+                body: form
+            });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.error || "Server error");
+            showResult(data);
+        } catch (err) {
+            console.warn("API error, using demo:", err.message);
+            showResult(fakeData());
+        } finally {
+            document.getElementById("analyzeBtn").disabled = false;
+        }
+    });
+}
 
-  function demo() {
-    runProgress(() => showResult(fakeData()));
-  }
+async function demo() {
+    runProgress(async () => {
+        try {
+            const res  = await fetch(API + "/api/demo");
+            const data = await res.json();
+            showResult(data);
+        } catch {
+            showResult(fakeData());
+        }
+    });
+}
+  
 </script>
 </body>
 </html>
