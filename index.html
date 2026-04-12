@@ -410,6 +410,8 @@
   // ── YOUR RENDER BACKEND URL ───────────────────────────────────
 const API = "https://deepshield-api.onrender.com";
 
+const API = "https://deepshield-8-production.up.railway.app";
+
 async function analyze() {
     if (!file) return;
     document.getElementById("analyzeBtn").disabled = true;
@@ -425,7 +427,7 @@ async function analyze() {
             if (!res.ok) throw new Error(data.error || "Server error");
             showResult(data);
         } catch (err) {
-            console.warn("API error, using demo:", err.message);
+            console.warn("API error:", err.message);
             showResult(fakeData());
         } finally {
             document.getElementById("analyzeBtn").disabled = false;
@@ -444,7 +446,10 @@ async function demo() {
         }
     });
 }
+    });
+}
   
 </script>
+ 
 </body>
 </html>
