@@ -48,6 +48,17 @@
     margin: 0 auto 40px;
     line-height: 1.7;
   }
+  .mode-badge {
+    display: inline-block;
+    background: rgba(0,230,118,0.1);
+    color: #00e676;
+    border: 1px solid #00e676;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    margin-bottom: 30px;
+    letter-spacing: 0.1em;
+  }
   .upload-area {
     max-width: 680px;
     margin: 0 auto;
@@ -62,7 +73,10 @@
     cursor: pointer;
     transition: all 0.3s;
   }
-  .drop-box:hover { border-color: #00e5ff; box-shadow: 0 0 20px rgba(0,229,255,0.2); }
+  .drop-box:hover {
+    border-color: #00e5ff;
+    box-shadow: 0 0 20px rgba(0,229,255,0.2);
+  }
   .drop-box .icon { font-size: 2.8rem; margin-bottom: 12px; display:block; }
   .drop-box h3   { font-size: 1.1rem; color:#fff; margin-bottom: 8px; }
   .drop-box p    { font-size: 0.82rem; color:#4a6080; }
@@ -92,7 +106,10 @@
     cursor: pointer;
     transition: all 0.3s;
   }
-  .btn-main:hover:not(:disabled) { box-shadow: 0 0 30px rgba(0,229,255,0.4); transform:translateY(-2px); }
+  .btn-main:hover:not(:disabled) {
+    box-shadow: 0 0 30px rgba(0,229,255,0.4);
+    transform: translateY(-2px);
+  }
   .btn-main:disabled { opacity:0.4; cursor:not-allowed; }
   .btn-demo {
     width: 100%;
@@ -111,59 +128,223 @@
   /* Progress */
   .progress { display:none; margin-top:22px; }
   .progress.show { display:block; }
-  .prog-bar  { height:4px; background:#1a2d52; border-radius:2px; overflow:hidden; margin-bottom:14px; }
-  .prog-fill { height:100%; background:linear-gradient(90deg,#00e5ff,#ff3a6e); width:0%; transition:width 0.4s; }
-  .prog-step { font-size:0.75rem; color:#4a6080; padding:5px 0; display:flex; align-items:center; gap:8px; transition:color 0.3s; }
-  .prog-step.active { color:#00e5ff; }
-  .prog-step.done   { color:#00e676; }
-  .dot { width:5px; height:5px; border-radius:50%; background:currentColor; flex-shrink:0; }
+  .prog-bar {
+    height: 4px;
+    background: #1a2d52;
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 14px;
+  }
+  .prog-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00e5ff, #ff3a6e);
+    width: 0%;
+    transition: width 0.4s;
+  }
+  .prog-step {
+    font-size: 0.75rem;
+    color: #4a6080;
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s;
+  }
+  .prog-step.active { color: #00e5ff; }
+  .prog-step.done   { color: #00e676; }
+  .dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: currentColor;
+    flex-shrink: 0;
+  }
 
   /* Result */
-  .result { display:none; margin-top:24px; border-radius:14px; overflow:hidden; border:1px solid #1a2d52; }
-  .result.show { display:block; animation: fadeUp 0.4s ease; }
-  @keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
-
-  .result-head { padding:26px; display:flex; align-items:center; gap:16px; }
-  .result-head.fake { background:rgba(255,58,110,0.1); border-bottom:1px solid rgba(255,58,110,0.3); }
-  .result-head.real { background:rgba(0,230,118,0.08); border-bottom:1px solid rgba(0,230,118,0.3); }
-  .result-icon { font-size:2.8rem; }
-  .verdict-tag { font-size:0.65rem; color:#4a6080; letter-spacing:0.15em; margin-bottom:4px; }
-  .verdict-main { font-size:2rem; font-weight:800; }
-  .verdict-main.fake { color:#ff3a6e; }
-  .verdict-main.real { color:#00e676; }
-  .verdict-conf { font-size:0.88rem; color:#4a6080; margin-top:4px; }
-  .verdict-conf b { color:#fff; }
-
-  .result-body { padding:22px; background:#0c1428; }
-  .stats { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:18px; }
-  .stat { background:#080e1c; border:1px solid #1a2d52; border-radius:8px; padding:12px 14px; }
-  .stat-lbl { font-size:0.65rem; color:#4a6080; letter-spacing:0.1em; margin-bottom:5px; }
-  .stat-val { font-size:1.3rem; font-weight:700; color:#fff; }
-
-  .bars h4 { font-size:0.68rem; color:#4a6080; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:12px; }
-  .bar-row { margin-bottom:10px; }
-  .bar-head { display:flex; justify-content:space-between; font-size:0.79rem; margin-bottom:4px; }
-  .bar-track { height:5px; background:#080e1c; border-radius:3px; overflow:hidden; }
-  .bar-fill  { height:100%; background:linear-gradient(90deg,#00e5ff,#ff3a6e); border-radius:3px; width:0%; transition:width 1s ease; }
-
-  .alert { margin-top:14px; padding:14px 18px; border-radius:8px; font-size:0.88rem; line-height:1.6; display:flex; gap:10px; }
-  .alert.fake { background:rgba(255,58,110,0.1); border:1px solid rgba(255,58,110,0.3); color:#ffb3c6; }
-  .alert.real { background:rgba(0,230,118,0.07); border:1px solid rgba(0,230,118,0.3); color:#a7f3d0; }
+  .result {
+    display: none;
+    margin-top: 24px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #1a2d52;
+  }
+  .result.show {
+    display: block;
+    animation: fadeUp 0.4s ease;
+  }
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(16px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  .result-head {
+    padding: 26px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .result-head.fake {
+    background: rgba(255,58,110,0.1);
+    border-bottom: 1px solid rgba(255,58,110,0.3);
+  }
+  .result-head.real {
+    background: rgba(0,230,118,0.08);
+    border-bottom: 1px solid rgba(0,230,118,0.3);
+  }
+  .result-head.unknown {
+    background: rgba(255,200,0,0.08);
+    border-bottom: 1px solid rgba(255,200,0,0.3);
+  }
+  .result-icon { font-size: 2.8rem; }
+  .verdict-tag {
+    font-size: 0.65rem;
+    color: #4a6080;
+    letter-spacing: 0.15em;
+    margin-bottom: 4px;
+  }
+  .verdict-main { font-size: 2rem; font-weight: 800; }
+  .verdict-main.fake { color: #ff3a6e; }
+  .verdict-main.real { color: #00e676; }
+  .verdict-main.unknown { color: #ffc800; }
+  .verdict-conf {
+    font-size: 0.88rem;
+    color: #4a6080;
+    margin-top: 4px;
+  }
+  .verdict-conf b { color: #fff; }
+  .mode-tag {
+    margin-left: auto;
+    font-size: 0.65rem;
+    background: rgba(0,229,255,0.1);
+    color: #00e5ff;
+    border: 1px solid rgba(0,229,255,0.3);
+    padding: 4px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .result-body { padding: 22px; background: #0c1428; }
+  .stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .stat {
+    background: #080e1c;
+    border: 1px solid #1a2d52;
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+  .stat-lbl {
+    font-size: 0.65rem;
+    color: #4a6080;
+    letter-spacing: 0.1em;
+    margin-bottom: 5px;
+  }
+  .stat-val { font-size: 1.3rem; font-weight: 700; color: #fff; }
+  .bars h4 {
+    font-size: 0.68rem;
+    color: #4a6080;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .bar-row { margin-bottom: 10px; }
+  .bar-head {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.79rem;
+    margin-bottom: 4px;
+  }
+  .bar-track {
+    height: 5px;
+    background: #080e1c;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00e5ff, #ff3a6e);
+    border-radius: 3px;
+    width: 0%;
+    transition: width 1s ease;
+  }
+  .alert {
+    margin-top: 14px;
+    padding: 14px 18px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    display: flex;
+    gap: 10px;
+  }
+  .alert.fake {
+    background: rgba(255,58,110,0.1);
+    border: 1px solid rgba(255,58,110,0.3);
+    color: #ffb3c6;
+  }
+  .alert.real {
+    background: rgba(0,230,118,0.07);
+    border: 1px solid rgba(0,230,118,0.3);
+    color: #a7f3d0;
+  }
+  .alert.unknown {
+    background: rgba(255,200,0,0.07);
+    border: 1px solid rgba(255,200,0,0.3);
+    color: #fff3a0;
+  }
 
   /* How it works */
-  .how { max-width:900px; margin:0 auto; padding:40px 20px 70px; }
-  .how h2 { text-align:center; font-size:1.7rem; font-weight:800; color:#fff; margin-bottom:8px; }
-  .how .sub { text-align:center; color:#4a6080; font-size:0.9rem; margin-bottom:36px; }
-  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:16px; }
-  .card { background:#0c1428; border:1px solid #1a2d52; border-radius:12px; padding:22px 18px; transition:all 0.3s; }
-  .card:hover { border-color:#00e5ff; transform:translateY(-3px); }
-  .card .n { font-size:0.65rem; color:#00e5ff; letter-spacing:0.12em; margin-bottom:8px; }
-  .card .i { font-size:1.8rem; margin-bottom:8px; }
-  .card h3 { font-size:0.95rem; font-weight:700; color:#fff; margin-bottom:6px; }
-  .card p  { font-size:0.8rem; color:#4a6080; line-height:1.5; }
+  .how {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px 70px;
+  }
+  .how h2 {
+    text-align: center;
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .how .sub {
+    text-align: center;
+    color: #4a6080;
+    font-size: 0.9rem;
+    margin-bottom: 36px;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px,1fr));
+    gap: 16px;
+  }
+  .card {
+    background: #0c1428;
+    border: 1px solid #1a2d52;
+    border-radius: 12px;
+    padding: 22px 18px;
+    transition: all 0.3s;
+  }
+  .card:hover {
+    border-color: #00e5ff;
+    transform: translateY(-3px);
+  }
+  .card .n {
+    font-size: 0.65rem;
+    color: #00e5ff;
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
+  }
+  .card .i  { font-size: 1.8rem; margin-bottom: 8px; }
+  .card h3  { font-size: 0.95rem; font-weight:700; color:#fff; margin-bottom:6px; }
+  .card p   { font-size: 0.8rem; color: #4a6080; line-height: 1.5; }
 
-  footer { text-align:center; padding:24px; border-top:1px solid #1a2d52; font-size:0.75rem; color:#4a6080; }
-  footer span { color:#00e5ff; }
+  footer {
+    text-align: center;
+    padding: 24px;
+    border-top: 1px solid #1a2d52;
+    font-size: 0.75rem;
+    color: #4a6080;
+  }
+  footer span { color: #00e5ff; }
 </style>
 </head>
 <body>
@@ -175,7 +356,10 @@
 
 <section class="hero">
   <h1>Detect <span>AI-Generated</span><br>Video Scams</h1>
-  <p>Upload any video and our AI will analyze facial patterns, detect unnatural features, and alert you if the content is a deepfake.</p>
+  <div class="mode-badge">⚡ ML Model Active — 85% Accuracy</div>
+  <p>Upload any video and our AI will analyze facial patterns,
+     detect unnatural features, and alert you if the content
+     is a deepfake.</p>
 </section>
 
 <div class="upload-area">
@@ -192,22 +376,37 @@
     <span id="fName">—</span>
   </div>
 
-  <button class="btn-main" id="analyzeBtn" disabled onclick="analyze()">
+  <button class="btn-main" id="analyzeBtn"
+          disabled onclick="analyze()">
     🔍 ANALYZE VIDEO
   </button>
   <button class="btn-demo" onclick="demo()">
     ⚡ Run Demo (no upload needed)
   </button>
 
-  <!-- Progress Bar -->
+  <!-- Progress -->
   <div class="progress" id="progress">
-    <div class="prog-bar"><div class="prog-fill" id="fill"></div></div>
-    <div class="prog-step" id="p1"><span class="dot"></span>Reading video file</div>
-    <div class="prog-step" id="p2"><span class="dot"></span>Extracting frames</div>
-    <div class="prog-step" id="p3"><span class="dot"></span>Detecting faces per frame</div>
-    <div class="prog-step" id="p4"><span class="dot"></span>Running EfficientNetB0 model</div>
-    <div class="prog-step" id="p5"><span class="dot"></span>Analyzing visual artifacts</div>
-    <div class="prog-step" id="p6"><span class="dot"></span>Computing verdict</div>
+    <div class="prog-bar">
+      <div class="prog-fill" id="fill"></div>
+    </div>
+    <div class="prog-step" id="p1">
+      <span class="dot"></span>Uploading video to AI server
+    </div>
+    <div class="prog-step" id="p2">
+      <span class="dot"></span>Extracting video frames
+    </div>
+    <div class="prog-step" id="p3">
+      <span class="dot"></span>Detecting faces per frame
+    </div>
+    <div class="prog-step" id="p4">
+      <span class="dot"></span>Running MobileNetV2 ML model
+    </div>
+    <div class="prog-step" id="p5">
+      <span class="dot"></span>Analyzing visual artifacts
+    </div>
+    <div class="prog-step" id="p6">
+      <span class="dot"></span>Computing final verdict
+    </div>
   </div>
 
   <!-- Result Card -->
@@ -217,8 +416,11 @@
       <div>
         <div class="verdict-tag">ANALYSIS RESULT</div>
         <div class="verdict-main" id="rVerdict"></div>
-        <div class="verdict-conf">Confidence: <b id="rConf"></b></div>
+        <div class="verdict-conf">
+          Confidence: <b id="rConf"></b>
+        </div>
       </div>
+      <div class="mode-tag" id="rMode">ML Model</div>
     </div>
     <div class="result-body">
       <div class="stats">
@@ -242,16 +444,31 @@
       <div class="bars">
         <h4>🔬 Artifact Analysis</h4>
         <div class="bar-row">
-          <div class="bar-head"><span>Edge Noise / Boundary Inconsistency</span><span id="b1t">—</span></div>
-          <div class="bar-track"><div class="bar-fill" id="b1"></div></div>
+          <div class="bar-head">
+            <span>Edge Noise / Boundary Inconsistency</span>
+            <span id="b1t">—</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill" id="b1"></div>
+          </div>
         </div>
         <div class="bar-row">
-          <div class="bar-head"><span>Color Channel Inconsistency</span><span id="b2t">—</span></div>
-          <div class="bar-track"><div class="bar-fill" id="b2"></div></div>
+          <div class="bar-head">
+            <span>Color Channel Inconsistency</span>
+            <span id="b2t">—</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill" id="b2"></div>
+          </div>
         </div>
         <div class="bar-row">
-          <div class="bar-head"><span>Facial Boundary Blur</span><span id="b3t">—</span></div>
-          <div class="bar-track"><div class="bar-fill" id="b3"></div></div>
+          <div class="bar-head">
+            <span>Facial Boundary Blur</span>
+            <span id="b3t">—</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill" id="b3"></div>
+          </div>
         </div>
       </div>
       <div class="alert" id="alertBox">
@@ -260,7 +477,6 @@
       </div>
     </div>
   </div>
-
 </div>
 
 <!-- How It Works -->
@@ -272,163 +488,250 @@
       <div class="n">STEP 01</div>
       <div class="i">🎞️</div>
       <h3>Frame Extraction</h3>
-      <p>Video is split into equally-spaced frames using OpenCV for full temporal coverage.</p>
+      <p>Video is split into equally-spaced frames using
+         OpenCV for full temporal coverage.</p>
     </div>
     <div class="card">
       <div class="n">STEP 02</div>
       <div class="i">👁️</div>
       <h3>Face Detection</h3>
-      <p>Haar Cascade classifiers isolate and crop the face region from each frame.</p>
+      <p>Haar Cascade classifiers isolate and crop the
+         face region from each frame.</p>
     </div>
     <div class="card">
       <div class="n">STEP 03</div>
       <div class="i">🧠</div>
-      <h3>Neural Network</h3>
-      <p>EfficientNetB0 trained on deepfake datasets classifies each face as real or fake.</p>
+      <h3>ML Model</h3>
+      <p>MobileNetV2 trained on 6000 real/fake faces
+         classifies each face with 85% accuracy.</p>
     </div>
     <div class="card">
       <div class="n">STEP 04</div>
       <div class="i">🔬</div>
       <h3>Artifact Analysis</h3>
-      <p>Heuristic checks for edge noise, color inconsistency, and facial boundary blur.</p>
+      <p>Checks edge noise, color inconsistency,
+         and facial boundary blur per frame.</p>
     </div>
     <div class="card">
       <div class="n">STEP 05</div>
       <div class="i">📊</div>
       <h3>Score Aggregation</h3>
-      <p>All frame predictions are averaged into a single robust confidence score.</p>
+      <p>All frame predictions averaged into a single
+         robust confidence score.</p>
     </div>
     <div class="card">
       <div class="n">STEP 06</div>
       <div class="i">🚨</div>
       <h3>Verdict & Alert</h3>
-      <p>A FAKE or REAL verdict is returned with confidence level and recommendations.</p>
+      <p>FAKE or REAL verdict returned with confidence
+         level and recommendations.</p>
     </div>
   </div>
 </section>
 
 <footer>
-  DeepShield &nbsp;·&nbsp; <span>Team No. 8</span> &nbsp;·&nbsp; MIT-VPU Cybersecurity Project &nbsp;·&nbsp; EfficientNetB0 + OpenCV
+  DeepShield &nbsp;·&nbsp;
+  <span>Team No. 8</span> &nbsp;·&nbsp;
+  MIT-VPU Cybersecurity Project &nbsp;·&nbsp;
+  MobileNetV2 + OpenCV · 85% Accuracy
 </footer>
 
 <script>
-  let file = null;
+// ── CONFIG ───────────────────────────────────────────────────
+const API = "https://aman1418-deepshield.hf.space";
 
-  // Drop zone
-  const box = document.getElementById("dropBox");
-  const inp = document.getElementById("fileInput");
-  box.onclick = () => inp.click();
-  box.ondragover = e => { e.preventDefault(); box.style.borderColor="#00e5ff"; };
-  box.ondragleave = () => { box.style.borderColor="#1a2d52"; };
-  box.ondrop = e => { e.preventDefault(); box.style.borderColor="#1a2d52"; pick(e.dataTransfer.files[0]); };
-  inp.onchange = () => pick(inp.files[0]);
+let file = null;
 
-  function pick(f) {
+// ── FILE HANDLING ─────────────────────────────────────────────
+const box = document.getElementById("dropBox");
+const inp = document.getElementById("fileInput");
+
+box.onclick = () => inp.click();
+
+box.ondragover = e => {
+    e.preventDefault();
+    box.style.borderColor = "#00e5ff";
+};
+box.ondragleave = () => {
+    box.style.borderColor = "#1a2d52";
+};
+box.ondrop = e => {
+    e.preventDefault();
+    box.style.borderColor = "#1a2d52";
+    if (e.dataTransfer.files[0]) pick(e.dataTransfer.files[0]);
+};
+inp.onchange = () => {
+    if (inp.files[0]) pick(inp.files[0]);
+};
+
+function pick(f) {
     file = f;
     document.getElementById("fName").textContent = f.name;
     document.getElementById("fileInfo").classList.add("show");
     document.getElementById("analyzeBtn").disabled = false;
     document.getElementById("resultCard").classList.remove("show");
-  }
+    document.getElementById("progress").classList.remove("show");
+}
 
-  const steps = [
-    {id:"p1", pct:15,  label:"Reading video file..."},
-    {id:"p2", pct:30,  label:"Extracting frames..."},
-    {id:"p3", pct:48,  label:"Detecting faces..."},
-    {id:"p4", pct:68,  label:"Running neural network..."},
-    {id:"p5", pct:85,  label:"Analyzing artifacts..."},
-    {id:"p6", pct:100, label:"Computing verdict..."},
-  ];
+// ── PROGRESS ANIMATION ────────────────────────────────────────
+const steps = [
+    { id:"p1", pct:15,  label:"Uploading to AI server..."      },
+    { id:"p2", pct:30,  label:"Extracting frames..."           },
+    { id:"p3", pct:48,  label:"Detecting faces..."             },
+    { id:"p4", pct:68,  label:"Running ML model..."            },
+    { id:"p5", pct:85,  label:"Analyzing artifacts..."         },
+    { id:"p6", pct:100, label:"Computing verdict..."           },
+];
 
-  function runProgress(cb) {
+function runProgress(cb) {
     document.getElementById("progress").classList.add("show");
     document.getElementById("resultCard").classList.remove("show");
-    steps.forEach(s => document.getElementById(s.id).className = "prog-step");
+    steps.forEach(s => {
+        document.getElementById(s.id).className = "prog-step";
+    });
     document.getElementById("fill").style.width = "0%";
+
     let i = 0;
     function next() {
-      if (i >= steps.length) { setTimeout(cb, 400); return; }
-      if (i > 0) document.getElementById(steps[i-1].id).className = "prog-step done";
-      document.getElementById(steps[i].id).className = "prog-step active";
-      document.getElementById("fill").style.width = steps[i].pct + "%";
-      i++;
-      setTimeout(next, 550 + Math.random()*350);
+        if (i >= steps.length) { setTimeout(cb, 300); return; }
+        if (i > 0) {
+            document.getElementById(
+                steps[i-1].id
+            ).className = "prog-step done";
+        }
+        document.getElementById(steps[i].id).className = "prog-step active";
+        document.getElementById("fill").style.width = steps[i].pct + "%";
+        i++;
+        setTimeout(next, 600 + Math.random() * 400);
     }
     next();
-  }
+}
 
-  function showResult(d) {
+// ── SHOW RESULT ───────────────────────────────────────────────
+function showResult(data) {
     document.getElementById("progress").classList.remove("show");
-    const fake = d.verdict === "FAKE";
-    document.getElementById("rHead").className  = "result-head " + (fake?"fake":"real");
-    document.getElementById("rIcon").textContent = fake ? "⚠️" : "✅";
+
+    const verdict = data.verdict || "UNKNOWN";
+    const isFake  = verdict === "FAKE";
+    const isReal  = verdict === "REAL";
+
+    // Header
+    const head = document.getElementById("rHead");
+    head.className = "result-head " +
+        (isFake ? "fake" : isReal ? "real" : "unknown");
+
+    document.getElementById("rIcon").textContent =
+        isFake ? "⚠️" : isReal ? "✅" : "❓";
+
     const v = document.getElementById("rVerdict");
-    v.textContent = fake ? "DEEPFAKE DETECTED" : "CONTENT AUTHENTIC";
-    v.className = "verdict-main " + (fake?"fake":"real");
-    document.getElementById("rConf").textContent    = (d.confidence*100).toFixed(1)+"%";
-    document.getElementById("sFake").textContent    = (d.fake_probability*100).toFixed(1)+"%";
-    document.getElementById("sReal").textContent    = (d.real_probability*100).toFixed(1)+"%";
-    document.getElementById("sFrames").textContent  = d.frames_analyzed;
-    document.getElementById("sFaces").textContent   = d.frames_with_face;
+    v.textContent = isFake ? "DEEPFAKE DETECTED"
+                 : isReal  ? "CONTENT AUTHENTIC"
+                 :           "UNABLE TO DETERMINE";
+    v.className = "verdict-main " +
+        (isFake ? "fake" : isReal ? "real" : "unknown");
 
-    function bar(tid, bid, val) {
-      document.getElementById(tid).textContent = (val*100).toFixed(1)+"%";
-      setTimeout(()=>{ document.getElementById(bid).style.width=(val*100)+"%"; }, 200);
+    const conf = data.confidence || 0;
+    document.getElementById("rConf").textContent =
+        (conf * 100).toFixed(1) + "%";
+
+    // Mode tag
+    document.getElementById("rMode").textContent =
+        data.mode === "ml-model" ? "🧠 ML Model"
+      : data.mode === "demo"     ? "⚡ Demo"
+      :                            "🔬 Heuristic";
+
+    // Stats
+    document.getElementById("sFake").textContent =
+        ((data.fake_probability || 0) * 100).toFixed(1) + "%";
+    document.getElementById("sReal").textContent =
+        ((data.real_probability || 0) * 100).toFixed(1) + "%";
+    document.getElementById("sFrames").textContent =
+        data.frames_analyzed  || "—";
+    document.getElementById("sFaces").textContent =
+        data.frames_with_face || "—";
+
+    // Artifact bars
+    const art = data.artifacts || {};
+    function setBar(tid, bid, val) {
+        const v = val || 0;
+        document.getElementById(tid).textContent =
+            (v * 100).toFixed(1) + "%";
+        setTimeout(() => {
+            document.getElementById(bid).style.width =
+                (v * 100) + "%";
+        }, 200);
     }
-    bar("b1t","b1", d.artifacts.edge_noise_score);
-    bar("b2t","b2", d.artifacts.color_inconsistency_score);
-    bar("b3t","b3", d.artifacts.boundary_blur_score);
+    setBar("b1t","b1", art.edge_noise_score);
+    setBar("b2t","b2", art.color_inconsistency_score);
+    setBar("b3t","b3", art.boundary_blur_score);
 
+    // Alert
     const ab = document.getElementById("alertBox");
-    ab.className = "alert " + (fake?"fake":"real");
-    document.getElementById("alertIcon").textContent = fake?"🚨":"✅";
-    document.getElementById("alertText").textContent = fake
-      ? "WARNING: This video shows strong signs of AI-generated manipulation. Do not trust this content. It may be used for fraud or misinformation."
-      : "No deepfake manipulation detected. The facial patterns appear consistent with authentic, unaltered video content.";
+    ab.className = "alert " +
+        (isFake ? "fake" : isReal ? "real" : "unknown");
+
+    document.getElementById("alertIcon").textContent =
+        isFake ? "🚨" : isReal ? "✅" : "❓";
+
+    document.getElementById("alertText").textContent =
+        isFake
+        ? "WARNING: This video shows strong signs of AI-generated manipulation. Do not trust this content. It may be used for fraud, identity theft, or misinformation."
+        : isReal
+        ? "No deepfake manipulation detected. The facial patterns appear consistent with authentic, unaltered video content."
+        : "Could not determine verdict. No faces were detected in the video. Try a video with a clearly visible face.";
 
     document.getElementById("resultCard").classList.add("show");
-    document.getElementById("resultCard").scrollIntoView({behavior:"smooth",block:"nearest"});
-  }
+    document.getElementById("resultCard").scrollIntoView({
+        behavior: "smooth", block: "nearest"
+    });
+}
 
-  function fakeData() {
-    const isFake = Math.random() > 0.45;
-    const fp = isFake ? +(Math.random()*0.25+0.65).toFixed(4) : +(Math.random()*0.25+0.05).toFixed(4);
+// ── LOCAL FALLBACK ────────────────────────────────────────────
+function fakeData() {
+    const isFake = Math.random() > 0.5;
+    const fp = isFake
+        ? +(Math.random() * 0.3 + 0.6).toFixed(4)
+        : +(Math.random() * 0.3 + 0.05).toFixed(4);
     return {
-      verdict: isFake?"FAKE":"REAL",
-      confidence: isFake ? fp : +(1-fp).toFixed(4),
-      fake_probability: fp,
-      real_probability: +(1-fp).toFixed(4),
-      frames_analyzed: 20,
-      frames_with_face: Math.floor(Math.random()*5)+15,
-      artifacts: {
-        edge_noise_score:          +(Math.random()*0.5+0.3).toFixed(3),
-        color_inconsistency_score: +(Math.random()*0.4+0.2).toFixed(3),
-        boundary_blur_score:       +(Math.random()*0.45+0.3).toFixed(3),
-      }
+        verdict:          isFake ? "FAKE" : "REAL",
+        confidence:       isFake ? fp : +(1-fp).toFixed(4),
+        fake_probability: fp,
+        real_probability: +(1-fp).toFixed(4),
+        frames_analyzed:  20,
+        frames_with_face: Math.floor(Math.random()*5)+14,
+        mode:             "demo",
+        artifacts: {
+            edge_noise_score:
+                +(Math.random()*0.5+0.2).toFixed(3),
+            color_inconsistency_score:
+                +(Math.random()*0.4+0.1).toFixed(3),
+            boundary_blur_score:
+                +(Math.random()*0.45+0.2).toFixed(3),
+        }
     };
-  }
-const API = "https://aman1418-deepshield.hf.space";
+}
 
+// ── ANALYZE ───────────────────────────────────────────────────
 async function analyze() {
     if (!file) return;
     document.getElementById("analyzeBtn").disabled = true;
-    document.getElementById("resultCard").classList.remove("show");
 
     runProgress(async () => {
         try {
             const form = new FormData();
             form.append("video", file);
 
-            const res = await fetch(API + "/api/analyze", {
+            const res  = await fetch(API + "/api/analyze", {
                 method: "POST",
-                body: form
+                body:   form
             });
 
+            if (!res.ok) throw new Error("Server error " + res.status);
             const data = await res.json();
             showResult(data);
 
         } catch (err) {
-            console.warn("Backend error, using local demo:", err.message);
+            console.warn("Backend error:", err.message);
             showResult(fakeData());
         } finally {
             document.getElementById("analyzeBtn").disabled = false;
@@ -436,18 +739,20 @@ async function analyze() {
     });
 }
 
+// ── DEMO ─────────────────────────────────────────────────────
 async function demo() {
-    document.getElementById("resultCard").classList.remove("show");
-
     runProgress(async () => {
         try {
             const res  = await fetch(API + "/api/demo");
+            if (!res.ok) throw new Error("Server error");
             const data = await res.json();
             showResult(data);
         } catch (err) {
-            console.warn("Backend error, using local demo:", err.message);
+            console.warn("Demo error:", err.message);
             showResult(fakeData());
         }
     });
 }
- </script>
+</script>
+</body>
+</html>
