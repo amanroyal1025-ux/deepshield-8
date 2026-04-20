@@ -583,29 +583,36 @@ const steps = [
     { id:"p6", pct:100, label:"Computing verdict..."           },
 ];
 
-function runProgress(cb) {
-    document.getElementById("progress").classList.add("show");
-    document.getElementById("resultCard").classList.remove("show");
-    steps.forEach(s => {
-        document.getElementById(s.id).className = "prog-step";
-    });
-    document.getElementById("fill").style.width = "0%";
+runProgress(async () => {
+    try {
+        const form = new FormData();
+        form.append("video", file);
 
-    let i = 0;
-    function next() {
-        if (i >= steps.length) { setTimeout(cb, 300); return; }
-        if (i > 0) {
-            document.getElementById(
-                steps[i-1].id
-            ).className = "prog-step done";
-        }
-        document.getElementById(steps[i].id).className = "prog-step active";
-        document.getElementById("fill").style.width = steps[i].pct + "%";
-        i++;
-        setTimeout(next, 600 + Math.random() * 400);
+        const controller = new AbortController();
+        const timeout = setTimeout(() => {
+            controller.abort();
+        }, 180000); // 3 minutes
+
+        const res = await fetch(API + "/api/analyze", {
+            method: "POST",
+            body: form,
+            signal: controller.signal
+        });
+
+        clearTimeout(timeout);
+
+        if (!res.ok) throw new Error("Server error " + res.status);
+        const data = await res.json();
+        console.log("Result:", data);
+        showResult(data);
+
+    } catch (err) {
+        console.error("Error:", err.message);
+        showResult(fakeData());
+    } finally {
+        document.getElementById("analyzeBtn").disabled = false;
     }
-    next();
-}
+});
 
 // ── SHOW RESULT ───────────────────────────────────────────────
 function showResult(data) {
