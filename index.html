@@ -565,8 +565,19 @@ inp.onchange = () => {
 };
 
 function pick(f) {
+    const maxMB = 15;
+    const sizeMB = f.size / (1024 * 1024);
+    if (sizeMB > maxMB) {
+        alert(
+            "Video is " + sizeMB.toFixed(1) + "MB — too large!\n\n" +
+            "Please use a video under 15MB.\n" +
+            "Tip: Use a short 10-15 second video."
+        );
+        return;
+    }
     file = f;
-    document.getElementById("fName").textContent = f.name;
+    document.getElementById("fName").textContent =
+        f.name + " (" + sizeMB.toFixed(1) + "MB)";
     document.getElementById("fileInfo").classList.add("show");
     document.getElementById("analyzeBtn").disabled = false;
     document.getElementById("resultCard").classList.remove("show");
